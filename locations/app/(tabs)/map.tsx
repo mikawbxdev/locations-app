@@ -28,7 +28,7 @@ export default function MapScreen() {
   // Effect to animate to marker when coordinates are available
   useEffect(() => {
     if (latitude && longitude && mapRef.current && mapReady) {
-      console.log('Animating to coordinates:', { latitude, longitude });
+
       // Increased delay to ensure map is fully loaded
       const timer = setTimeout(() => {
         mapRef.current?.animateToRegion({
@@ -37,7 +37,7 @@ export default function MapScreen() {
           latitudeDelta: 0.01, // Closer zoom than initialRegion
           longitudeDelta: 0.01,
         }, 1000); // 1 second animation
-      }, 1000); // Increased from 500ms to 1000ms
+      }, 1000);
       
       return () => clearTimeout(timer);
     }
